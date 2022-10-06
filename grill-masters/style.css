@@ -44,7 +44,7 @@
     
 }
 
-@media (min-width: 900px){
+@media (min-width: 960px){
     :root{
         --fs-600: 3.125rem;
         --fs-500: 2.5rem;
@@ -176,14 +176,16 @@ html:focus-within {
 
 /* Set core body defaults */
 html{
-    background-color: var(--color-orange-200);
+    background-color: var(--color-white-100);
     margin: 0;
     height: 100%;
+    
 }
 body{
     margin: auto;
     height: 100%;
-    max-width: 1440px;
+    max-width: 100%;
+    overflow-x: hidden;
 
 }
 
@@ -221,13 +223,23 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+.width-control{
+    max-width: 1440px;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
 .header{
     background-color: var(--color-white-100);
+    position: sticky;
+    min-width: 100%;
 }
 .header-container{
     height: 74px;
     max-width: 1440px;
-    margin: 0 0.5rem;
+    margin: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -241,21 +253,31 @@ svg {
         align-items: center;
         justify-content: center;
       }
+
 .primary-navigation-left a,
 .primary-navigation-right a{
     text-decoration: none;
     color: var(--color-black-primary);
     margin: 12px;
 }
+@media (max-width: 900px){
+    .header{
+        visibility: hidden;
+    }
+    
+    
+}
 .announcment-bar{
     display: flex;
     height: 36px;
+    width: 100%;
     font-weight: var(--fw-medium);
     font-size: 14px;
     color: var(--color-white-100);
     background-color: var(--color-orange-primary);
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .video-banner-container {
@@ -266,8 +288,18 @@ svg {
     position:relative;
     z-index:0;
 }
+
+@media(max-width:900px){
+    .video-banner-container video{
+        visibility: hidden;
+    }
+}
 .video-overlay {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%;
+    width: 100%;
     position:absolute;
     overflow: hidden;
     top:0;
@@ -276,16 +308,46 @@ svg {
 }
 
 .banner-heading{
-    display:inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: inherit;
-    min-width: 1440px;
+    min-width: 100%;
 }
 
 .banner-heading p{
     color: var(--color-white-100);
+    text-align: center;
+}
+.banner-buttons-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.banner-buttons-container a{
+    margin: 1rem;
+    text-decoration: none;
+    
+}
+
+.my-button-orange{
+    height: 48px;
+    width: 153px;
+    background-color: var(--color-orange-primary);
+    color: var(--color-white-100);
+    font-weight: var(--fw-medium);
+    border-radius: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.my-button-white{
+    height: 48px;
+    width: 153px;
+    background-color: var(--color-white-100);
+    color: var(--color-black-primary);
+    font-weight: var(--fw-medium);
+    border-radius: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 main{
@@ -297,16 +359,58 @@ main{
     position: relative;
     top: -7px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 
-    '... heading-how ...' 
-    'first-how second-how third-how'
-    '... how-tooltip ...';
     gap: 2rem;
+    grid-template-areas: 
+    'heading-how'
+    'first-how-icon'
+    'first-how-heading'
+    'first-how-text'
+    'second-how-icon'
+    'second-how-heading'
+    'second-how-text'
+    'third-how-icon'
+    'third-how-heading'
+    'third-how-text'
+    'how-tooltip'
+    ;
     padding: 2rem;
     text-align: center;
 }
+@media(min-width:900px){
+    .how-it-works-container{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 
+        '... heading-how ...' 
+        'first-how-icon second-how-icon third-how-icon'
+        'first-how-heading second-how-heading third-how-heading'
+        'first-how-text second-how-text third-how-text'
+        'how-tooltip how-tooltip how-tooltip';
+    }
+}
 
+
+
+.first-how-icon{
+    grid-area: first-how-icon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.second-how-icon{
+    grid-area: second-how-icon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.third-how-icon{
+    grid-area: third-how-icon;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .how-it-works-heading{
     grid-area: heading-how;
@@ -315,32 +419,57 @@ main{
     justify-content: center;
     
 }
-.how-it-works-first{
-    grid-area: first-how;
+.first-how-heading{
+    grid-area: first-how-heading;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--color-orange-primary);
     
 }
-.how-it-works-second{
-    grid-area:second-how;
+.second-how-heading{
+    grid-area:second-how-heading;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--color-orange-primary);
 }
-.how-it-works-third{
-    grid-area:third-how;
+.third-how-heading{
+    grid-area:third-how-heading;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    color: var(--color-orange-primary);
 }
-.how-it-works-tooltip{
+.first-how-text{
+    grid-area: first-how-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    
+}
+.second-how-text{
+    grid-area:second-how-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.third-how-text{
+    grid-area:third-how-text;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.how-tooltip{
     grid-area: how-tooltip;
     display: flex;
-    width: fit-content;
     align-items: center;
     justify-content: center;
+    font-size: 14px;
 }
