@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="92.362" height="87.844" viewBox="0 0 92.362 87.844">
+  <g id="howitworks_2" data-name="howitworks 2" transform="translate(0 -0.453)">
+    <g id="Group_9" data-name="Group 9" transform="translate(9.753 1.377)">
+      <path id="Path_17" data-name="Path 17" d="M73.151,46.308,61.145,39H35V59.377l11.078,7.976" transform="translate(8.084 18.17)" fill="#e0a873" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <rect id="Rectangle_15" data-name="Rectangle 15" width="27" height="20" transform="translate(54.247 65.523)" fill="#e0a873" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Path_22" data-name="Path 22" d="M15.978,75.752V7.88H50.906V52.421h5.407V1.377H9.753V75.752Z" transform="translate(-9.753 -1.377)" fill="#faf8f4"/>
+    </g>
+    <line id="Line_1" data-name="Line 1" x1="9.799" y1="6.898" transform="translate(53.5 59.5)" fill="none" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <g id="Group_11" data-name="Group 11" transform="translate(1 1.453)">
+      <line id="Line_2" data-name="Line 2" x2="44" transform="translate(0 74.448)" fill="none" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+      <path id="Path_19" data-name="Path 19" d="M7,75.525V1H53.48V51.6" transform="translate(2.167 -1)" fill="none" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </g>
+    <path id="Path_20" data-name="Path 20" d="M11,73.715V5H45.86V49.738" transform="translate(5.541 2.262)" fill="none" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_21" data-name="Path 21" d="M29,23h2.9V34.62H29" transform="translate(14.089 11.253)" fill="none" stroke="#1a1818" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    <path id="Path_32" data-name="Path 32" d="M66.752,5.738c-.383.668-.744,1.286-1.095,1.91-.265.472-.519.95-.772,1.428a2.564,2.564,0,0,0,.181,2.874v0a.167.167,0,0,1-.183.253.445.445,0,0,1-.058-.019A3.637,3.637,0,0,1,62.671,7.8,5.858,5.858,0,0,1,63.893,5.69a9.191,9.191,0,0,0,1.941-3.405A5.884,5.884,0,0,0,66.081.447c0-.078.017-.211.058-.226a.325.325,0,0,1,.253.047A4.309,4.309,0,0,1,68.169,3c.1.482.078.987.14,1.478a7.385,7.385,0,0,0,.211,1.045c.054.194.175.4.42.389.264-.015.331-.255.368-.46.046-.256.039-.522.065-.782.008-.07.037-.174.086-.2a.258.258,0,0,1,.215.049,3.91,3.91,0,0,1,1.09,1.416,6.158,6.158,0,0,1,.7,2.514,3.7,3.7,0,0,1-2.4,3.727.274.274,0,0,1-.076.014.14.14,0,0,1-.139-.2l.005-.009a2.556,2.556,0,0,0-.113-2.941,5.442,5.442,0,0,0-.541-.749A7.723,7.723,0,0,1,66.8,5.872c-.009-.027-.02-.052-.052-.134" transform="translate(11.095 71.022)" fill="#1a1818"/>
+  </g>
+</svg>

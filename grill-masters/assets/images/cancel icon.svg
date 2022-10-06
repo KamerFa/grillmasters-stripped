@@ -1,0 +1,15 @@
+<svg id="cancel_icon" data-name="cancel icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_42" data-name="Rectangle 42" width="44" height="44" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-width="1.5"/>
+    </clipPath>
+  </defs>
+  <g id="Group_25" data-name="Group 25" clip-path="url(#clip-path)">
+    <path id="Path_49" data-name="Path 49" d="M24.42,1.05,21,7.891v6.157l2.736-.684,2.736.684,2.736-.684,2.736.684V7.891L29.209,1.05" transform="translate(-6.635 -0.332)" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_50" data-name="Path 50" d="M1.05,7.841,8.575,1H31.833l7.525,6.841" transform="translate(-0.332 -0.316)" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_51" data-name="Path 51" d="M20.838,42.467H1.684A.684.684,0,0,1,1,41.783v-30.1A.684.684,0,0,1,1.684,11H38.623a.684.684,0,0,1,.684.684V24" transform="translate(-0.316 -3.475)" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <circle id="Ellipse_3" data-name="Ellipse 3" cx="9.5" cy="9.5" r="9.5" transform="translate(24 24)" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_9" data-name="Line 9" x2="6.841" y2="6.841" transform="translate(29.941 30.204)" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <line id="Line_10" data-name="Line 10" y1="6.841" x2="6.841" transform="translate(29.941 30.204)" fill="none" stroke="#f36a10" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>
