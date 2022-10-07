@@ -208,24 +208,10 @@ svg {
 }
 
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-   scroll-behavior: auto;
-  }
-  
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
+
 
 .width-control{
-    max-width: 1440px;
+    max-width: 1920px;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -238,12 +224,11 @@ svg {
 }
 .header-container{
     height: 74px;
-    max-width: 1440px;
-    margin: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .cart-icon{
         height: 30px;
         width: 30px;
@@ -258,7 +243,7 @@ svg {
 .primary-navigation-right a{
     text-decoration: none;
     color: var(--color-black-primary);
-    margin: 12px;
+    margin: 1rem;
 }
 @media (max-width: 900px){
     .header{
@@ -281,6 +266,8 @@ svg {
 }
 
 .video-banner-container {
+    width: 100%;
+    max-height: 760px;
     position:relative;
 }
 .video-banner-container video {
@@ -319,16 +306,62 @@ svg {
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    font-family: var(--ff-heading);
+    text-transform: uppercase;
+    font-size: 15px;
 }
-.banner-buttons-container a{
+
+
+.button-container{
+    display: flex;
     margin: 1rem;
-    text-decoration: none;
+}
+
+.orange-button-outline{
+    color: transparent;
+    padding: inherit;
+    height: 48px;
+    background:none;
+    border: 1px solid var(--color-orange-primary);
+    border-radius: 24px;
+    position:absolute;
+    translate: 5% 10%;
     
+}
+.white-button-outline{
+    color: transparent;
+    padding: inherit;
+    height: 48px;
+    min-width: inherit;
+    background:none;
+    border: 1px solid var(--color-white-100);
+    border-radius: 24px;
+    position:absolute;
+    translate: 5% 10%;
+    
+    
+}
+
+*{
+    transition-duration: 300ms;
+}  
+
+
+.orange-button-outline:hover,
+.white-button-outline:hover{
+    translate: -3% 0%;
+    border: 1px solid transparent;
+}
+.my-button-orange:hover{
+    background-color: var(--color-orange-500);
+}
+.my-button-white:hover{
+    background-color: var(--color-white-primary);
 }
 
 .my-button-orange{
     height: 48px;
-    width: 153px;
+    padding: 25px;
     background-color: var(--color-orange-primary);
     color: var(--color-white-100);
     font-weight: var(--fw-medium);
@@ -337,9 +370,10 @@ svg {
     align-items: center;
     justify-content: center;
 }
+
 .my-button-white{
     height: 48px;
-    width: 153px;
+    padding: 25px;
     background-color: var(--color-white-100);
     color: var(--color-black-primary);
     font-weight: var(--fw-medium);
@@ -472,4 +506,22 @@ main{
     align-items: center;
     justify-content: center;
     font-size: 14px;
+}
+
+.whats-in-box-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 3% auto 3% auto;
+}
+
+.whats-in-box-container p{
+    max-width: 650px;
+    text-align: center;
+}
+.whats-in-box-container :nth-child(1){
+    color: var(--color-orange-primary);
+    
 }
