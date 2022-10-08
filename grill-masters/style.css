@@ -525,3 +525,86 @@ main{
     color: var(--color-orange-primary);
     
 }
+
+
+
+/**** BUTTONS **/
+.btn-orange{
+    padding: 15.5px 30px;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: relative;
+    border-radius: 24px;
+    border: none;
+    z-index: 1;
+    background-color: var(--color-orange-primary);
+    color: var(--color-white-100);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    font-size: 15px;
+    
+}
+
+.btn-orange::before{
+    content:"";
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--color-orange-primary);
+    border-radius: 24px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(4px, 4px);
+    transition: transform .15s ease-in-out;
+}
+
+.btn-orange:hover{
+    background-color: var(--color-orange-500);
+}
+
+.btn-orange:hover::before{
+    transform: translate(0px, 0px);
+}
+
+.btn-white{
+    padding: 15.5px 30px;
+    height: 100%;
+    width: 100%;
+    display: block;
+    position: relative;
+    border-radius: 24px;
+    border: none;
+    z-index: 1;
+    background-color: var(--color-white-100);
+    color: var(--color-black-primary);
+    font-weight: var(--fw-medium);
+    text-transform: uppercase;
+    font-size: 15px;
+    
+}
+
+.btn-white::before{
+    content:"";
+    height: 100%;
+    width: 100%;
+    border: 1px solid var(--color-white-100);
+    border-radius: 24px;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(4px, 4px);
+    transition: transform .15s ease-in-out;
+}
+
+.btn-white:hover{
+    background-color: var(--color-white-primary);
+}
+
+.btn-white:hover::before{
+    transform: translate(0px, 0px);
+}
+
+
