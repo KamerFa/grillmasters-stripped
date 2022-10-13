@@ -7,37 +7,37 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Oswald:wght@400;500;600&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="/main.js" defer></script>
     <title>Grillmasters</title>
   </head>
   <body>
     <div class="p-font announcment-bar">FREE shipping on all US orders!</div>
-    <div class="width-control">
-    <header class="header">  
-      <div class="header-container">
+    <header class="header">
+        <span class="burger-icon"><img src="assets/images/Menu Icon.svg" alt="menu icon" style="height: 30px; width: 30px;"></span>
         <nav class="primary-navigation-left p-font">
             <a href="#">Subscribe</a>
             <a href="#">Bundles</a>
             <a href="#">Give a gift</a>
         </nav>
-        <a class="navlogo" href="#"><img src="assets/images/Logo.svg" alt="Grill masters club"></a>
+        <div class="navlogo" href="#"><img src="assets/images/Logo.svg" alt="Grill masters club"></div>
         <nav class="primary-navigation-right p-font">
             <a href="#">Tips & Recipes</a>
             <a href="#">Box Status</a>
             <a href="#">Account</a>
-            <span href="#" class="cart-icon">0</span>
         </nav>
-      </div>
+          <span href="#" class="cart-icon">0</span>
     </header>
     <main>
-      <div class="video-banner-container">
-        <video autoplay muted loop id="heroVideo">
+      <section class="banner-section">
+          <div class="video-banner-container">
+          <video playsinline autoplay muted loop id="heroVideo">
           <source src="assets/video/C1YTHU-bHWL.mp4" type="video/mp4">
-        </video>
-        <div class="video-overlay">
-          <div class="banner-heading">
-            <p class="h6-font">FOR THOSE WHO LOVE GREAT BBQ</p>
-            <p class="h1-font">AMERICA’S #1 BBQ SUBSCRIPTION BOX</p>
-            <p class="p-font">Certified pitmaster-approved BBQ products, grilling tips, recipes and deals delivered to your door.</p>
+          </video>
+          <div class="video-overlay">
+            <div class="banner-heading container-width">
+              <h2 class="h6-font">FOR THOSE WHO LOVE GREAT BBQ</h2>
+              <h1 class="h1-font">AMERICA’S #1 BBQ SUBSCRIPTION BOX</h1>
+            <h3 class="p-font">Certified pitmaster-approved BBQ products, grilling tips, recipes and deals delivered to your door.</h3>
             
             <div class="banner-buttons-container">
               <div class="button-container">
@@ -51,14 +51,18 @@
                 </button>
               </div>
             </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="how-it-works-container">
-            <p class="how-it-works-heading h3-font">HOW IT WORKS</p> 
-            
-            <a class="first-how-icon"><img src="assets/images/howitworks 1.svg" alt="how it works icon" ></a>
-            <p class="h5-font first-how-heading">SUBSCRIBE TO GRILL MASTERS CLUB</p>
+        
+      </section>
+      <section class="how-it-works">
+        <div class="how-it-works-container container-width">
+
+          <p class="how-it-works-heading h3-font">HOW IT WORKS</p> 
+          
+          <a class="first-how-icon"><img src="assets/images/howitworks 1.svg" alt="how it works icon" ></a>
+          <p class="h5-font first-how-heading">SUBSCRIBE TO GRILL MASTERS CLUB</p>
             <p class="p-font first-how-text">Receive a themed monthly box, which will include 5+ award-winning BBQ products, countless recipes, members-only rewards, and more. <br>Starting at $34.99 per month!</p>
         
             
@@ -72,17 +76,238 @@
             
             <p class="p-font how-tooltip">First box ships within 72 hours. Subscriptions ship on the 10th of each month.</p>
           </div>
+        </section>
           
-          <div class="whats-in-box-container"> 
+          <section class="whats-in-box"> 
             
-              <p class="h6-font">THE ULTIMATE BBQ EXPERIENCE™</p>
-              <p class="h2-font">WHAT’S IN THE BOX</p>
-              <p class="p-font">Explore and revel in the many styles of BBQ our subscription box features each month. Inside you’ll find award-winning BBQ sauces, dry rubs, marinades, mustards, hot sauces, grilling accessories, pitmaster-inspired recipes, and much more. Watch a video unboxing!</p>
-              
-            
-          </div>
+              <div class="whats-in-box-container container-width">
+                <div class="whats-heading">
+                  <h3 class="h6-font">THE ULTIMATE BBQ EXPERIENCE™</h3>
+                  <h2 class="h2-font">WHAT’S IN THE BOX </h2>
+                  <h4 class="p-font">Explore and revel in the many styles of BBQ our subscription box features each month. Inside you’ll find award-winning BBQ sauces, dry rubs, marinades, mustards, hot sauces, grilling accessories, pitmaster-inspired recipes, and much more. Watch a video unboxing!</h4>
+                </div>
+              </div>
+              <div class="whats-slider scroll-slider" data-slider>
+                  <div class="whats-buttons-container container-width">
+                      <button class="slider-button prev" data-slider-button="prev"><img src="assets/images/arrow-left.svg" ></button>
+                      <button class="slider-button next" data-slider-button="next"><img src="assets/images/arrow-right.svg"></button>
+                  </div>
+                  <div class="slider-wrapper">
+                    <ul class="slider" data-slides>
+                      <li data-active class="scroll-slide">
+                        <div class="slide-image">
+                        <img src="assets/images/CJEvans_GM-457.png" alt="bbq sauce">
+                        </div>
+                        <div class="slide-text">
+                          <h3>01</h3>
+                          <h2>BBQ SAUCE</h2>
+                          <p>We hand-select only the finest BBQ sauces to include in our monthly boxes. Barbecue sauces are the gold standard for any smoked meat enthusiast, and can be magical if made with the right ingredients and used correctly. 
+                          <br><br>Explore the different regions and styles of barbecue with our rotating sauces, and learn how to use them like a pro.</p>
+                        </div>
+                      </li>
+                      <li class="scroll-slide">
+                        <div class="slide-image">
+                          <img src="assets/images/CJEvans_GM-329.png" alt="dry rub">
+                        </div>
+                        <div class="slide-text">
+                          <h3>02</h3>
+                          <h2>DRY RUB</h2>
+                          <p>We hand-select only the finest BBQ sauces to include in our monthly boxes. Barbecue sauces are the gold standard for any smoked meat enthusiast, and can be magical if made with the right ingredients and used correctly. 
+                          <br><br>Explore the different regions and styles of barbecue with our rotating sauces, and learn how to use them like a pro.</p>
+                        </div>
+                      </li>
+                      <li class="scroll-slide">
+                        <div class="slide-image ">
+                          <img src="assets/images/UGC - Grill IMG_1947.png" alt="masters choices">
+                        </div>
+                        <div class="slide-text">
+                          <h3>03</h3>
+                          <h2>GRILL MASTERS CHOICES</h2>
+                          <p>We hand-select only the finest BBQ sauces to include in our monthly boxes. Barbecue sauces are the gold standard for any smoked meat enthusiast, and can be magical if made with the right ingredients and used correctly. 
+                          <br><br>Explore the different regions and styles of barbecue with our rotating sauces, and learn how to use them like a pro.</p>
+                        </div>
+                      </li>
+                      <li class="scroll-slide">
+                        <div class="slide-image ">
+                          <img src="assets/images/RecipeCard.png" alt="recipe card">
+                        </div>
+                        <div class="slide-text">
+                          <h3>04</h3>
+                          <h2>BBQ SAUCE</h2>
+                          <p>We hand-select only the finest BBQ sauces to include in our monthly boxes. Barbecue sauces are the gold standard for any smoked meat enthusiast, and can be magical if made with the right ingredients and used correctly. 
+                          <br><br>Explore the different regions and styles of barbecue with our rotating sauces, and learn how to use them like a pro.</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+          </section>
+          <section class="featured-brands ">
+            <div class="featured-container container-width">
+              <div class="fancy-heading">
+                <span>featured brands</span>
+              </div>
+              <div class="featured-logos">
+                <div class="logo-wrapper">
+                  <img src="assets/images/BBQ Pit Boys Group.png" alt="bbq pit boys group logo">
+                </div>
+                <div class="featured-logo-wrapper">
+                  <img src="assets/images/sweet baby rays.png" alt="sweet baby rays logo">
+                </div>
+                <div class="featured-logo-wrapper">
+                  <img src="assets/images/Jimmy Jacks.png" alt="jimmy jacks logo">
+                </div>
+                <div class="featured-logo-wrapper">
+                  <img src="assets/images/Van Smokey.png" alt="van smokey logo">
+                </div>
+                <div class="featured-logo-wrapper">
+                  <img src="assets/images/Stubbs.png" alt="Stubbs logo">
+                </div>
+                <div class="featured-logo-wrapper">
+                  <img src="assets/images/rib rack.png" alt="rib rack logo">
+                </div>
+              </div>
+            </div>
+          </section>
+            <div class="marquee" id="marquee">
+              <h2>• FREE SHIPPING WITHIN THE US • </h2>
+            </div>
+          <section class="box-types">
+            <div class="box-types-container container-width">
+              <div class="box-type-heading">
+                <h2 class="h3-font">Become a barbecue expert today</h2>
+              </div>
+              <div class="box-type-cards">
+                <div class="box-type-card box-badge-margin">
+                  <h3 class="box-type-card-heading">bi-monthly</h3>
+                  <div class="box-type-card-image">
+                    <img src="assets/images/GrillMastersClub-Box_Landscape2.png" alt="grill masters box">
+                  </div>
+                  <h3 class="box-type-price">$44.99 / box</h3>
+                  <span class="box-type-save"><br></span>
+                  <span class="box-type-total">Total: $89.98</span>
+                  <button class="btn-orange box-button"> Subscribe </button>
+                  
+                </div>
+                <div class="box-type-card most-popular">
+                  <h3 class="box-type-card-heading ">3 month prepay</h3>
+                  <div class="box-type-card-image">
+                    <img src="assets/images/GrillMastersClub-Box_Landscape2.png" alt="grill masters box">
+                  </div>
+                  <h3 class="box-type-price">$37.99 / box</h3>
+                  <span class="box-type-save">Save $21 - $7 per box</span>
+                  <span class="box-type-total">Total: $113.97</span>
+                  <button class="btn-orange box-button"> Subscribe </button>
+                  
+                </div>
+                <div class="box-type-card box-badge-margin">
+                  <h3 class="box-type-card-heading">6 month prepay</h3>
+                  <div class="box-type-card-image">
+                    <img src="assets/images/GrillMastersClub-Box_Landscape2.png" alt="grill masters box">
+                  </div>
+                  <h3 class="box-type-price">$35.99 / box</h3>
+                  <span class="box-type-save">Save $54 - $9 per box</span>
+                  <span class="box-type-total">Total: $215.94</span>
+                  <button class="btn-orange box-button"> Subscribe </button>
+                  
+                </div>
+                <div class="box-type-card best-value">
+                  <h3 class="box-type-card-heading">12 month prepay</h3>
+                  <div class="box-type-card-image">
+                    <img src="assets/images/GrillMastersClub-Box_Landscape2.png" alt="grill masters box">
+                  </div>
+                  <h3 class="box-type-price">$34.99 / box</h3>
+                  <span class="box-type-save">Save $120 - $10 per box</span>
+                  <span class="box-type-total">Total: $419.88</span>
+                  <button class="btn-orange box-button"> Subscribe </button>
+                  
+                </div>
+              </div>
+              <div class="box-type-icons-container">
+                <span class="icons-heading">International Shipping is $19.99 per box</span>
+                <div class="icons-container">
+                  <div class="icon-container">
+                    <img src="assets/images/next box icon.svg" alt="next box icon">
+                    <span>Next Box Ships August 8</span>
+                  </div>
+                  <div class="icon-container">
+                    <img src="assets/images/renewing gift icon.svg" alt="gift icon">
+                    <span>Non-Renewing Gift Orders Available</span>
+                  </div>
+                  <div class="icon-container">
+                    <img src="assets/images/printable card icon.svg" alt="printable icon">
+                    <span>Printable and E-mailable Gift Notification Card</span>
+                  </div>
+                  <div class="icon-container">
+                    <img src="assets/images/cancel icon.svg" alt="cancel anytime">
+                    <span>Cancel Anytime</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="gift-section">
+            <div class="gift-membership container-width">
+              <div class="gift-content">
+                <h3>A perfect gift for any occasion!</h3>
+                <p>Birthdays, Anniversaries, Father’s Day, Christmas — we’ve got you covered! Be sure to choose from our many printable or emailable gift notification cards, available at checkout.</p>
+                <button class="btn-white">Gift a membership</button>
+              </div>
+            </div>
+          </section>
+          <section class="pitmaster-panel">
+            <h2>Very Simple Horizontal Slider</h2>
+                <div class="slidertest">
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=390" alt=""></div>
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=410" alt=""></div>
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=420" alt=""></div>
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=43" alt=""></div>
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=440" alt=""></div>
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=45" alt=""></div>
+                  <div class="slidetest"><img src="https://unsplash.it/600/400?image=46" alt=""></div>
+                  <div class="slide"><img src="https://unsplash.it/600/400?image=47" alt=""></div>
+                </div>
+              </section>
         </main>
-      </div>
-        <script type="module" src="/main.js"></script>
+        <footer class="footer">
+          <div class="footer-container container-width">
+            <div class="footer-nav">
+              <div class="footerlogo" href="#"><img src="assets/images/Logo White & Orange.svg" alt="Grill masters club"></div>
+              <div class="newsletter-signup">
+                <h3>JOIN OUR MAIL LIST <br>& GET 10% OFF YOUR SUBSCRIPTION!</h3>
+                <form action="" method="post">		    
+                  <input type="text" placeholder="Your Email">		    	
+                  <button class="btn-join">Join <img src="assets/images/join arrow.svg" alt="join"></button>
+                </form>
+              </div>
+              <nav class="nav-footer">
+                <ul>
+                  <a href="#">Bundles</a>
+                  <a href="#">FAQs</a>
+                  <a href="#">Box Status</a>
+                  <a href="#">Feature your product</a>
+                  <a href="#">Tips & Recipes</a>
+                  <a href="#">Affiliates</a>
+                  <a href="#">Contact Us</a>
+                  <a href="#">Member Testimonials</a>
+                </ul>
+              </nav>
+              <div class="footer-social-icons">
+                <a href="#"><img src="assets/images/facebook.svg" alt="facebook icon"></a>
+                <a href="#"><img src="assets/images/instagram.svg" alt="instagram icon"></a>
+                <a href="#"><img src="assets/images/pinterest-p.svg" alt="instagram icon"></a>
+                <a href="#"><img src="assets/images/youtube.svg" alt="instagram icon"></a>
+              </div>
+            </div>
+            <div class="footer-bottom">
+              <span>Copyright © 2022 Grill Masters Club. All rights reserved.</span>
+              <span>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+              </span>
+            </div>
+          </div>
+        </footer>
+        
       </body>
 </html>
