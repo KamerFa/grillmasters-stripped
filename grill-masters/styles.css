@@ -66,6 +66,12 @@
 .heebo{
     font-family: 'Heebo', sans-serif;
 }
+.txt-spacing-0{
+    letter-spacing: 0;
+}
+.txt-spacing-085{
+    letter-spacing: 0.85;
+}
 .txt-50{
     font-size:38px;
 }
@@ -136,42 +142,19 @@
 .decoration-none{
     text-decoration: none;
 }
-.txt-spacing-0{
-    letter-spacing: 0;
-}
+
 
 h1{
-    font-family: var(--ff-primary);
-    font-weight: var(--fw-semi-bold);
-    font-size: 38;
     line-height: 1.32;
+    margin: 0.5rem;
 }
 h2{
-    font-family: var(--ff-primary);
-    font-weight: var(--fw-medium);
-    font-size: 26;
     line-height: 1.38;
 }
 h3{
-    font-family: var(--ff-primary);
-    font-weight: var(--fw-medium);
-    font-size: 22px;
     line-height: 1.45;
 }
-@media (min-width: 768px ) {
-    h1{
-        font-size: 50px;
-        line-height: 1.36;
-    }
-    h2{
-        font-size: 36px;
-        line-height: 1.33;
-    }
-    h3{
-        font-size: 28px;
-        line-height: 1.42;
-    }
-}
+
 .txt-center{
     text-align: center;
 }
@@ -188,6 +171,7 @@ section:not(.hero-section){
     max-width: 1370px;
     margin-inline:auto;
 }
+
 
 /***** CLASS CSS *****/
 
@@ -316,7 +300,14 @@ header{
     z-index: 11;
 }  
 
-
+.hero-content{
+    display: flex;
+    flex-direction: column;
+    row-gap: 0;
+}
+.hero-content>span{
+    margin: 0.5rem;
+}
 
         /*How it works*/
 .how-it-works{
@@ -346,7 +337,58 @@ header{
 }
 
         /*Whats in the box*/
+        .whats-slider{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            width: 100%;
+        }
+        .whats-buttons-container{
+            z-index: 5;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .slider-button{
+            background-color: transparent;
+            border: none;
+            padding: 0.5rem;
+        }
+        .slider{
+            display: grid;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
 
+        
+        .slider > li[data-active]{
+            opacity: 100%;
+            transition: 400ms ease-in-out;
+            
+        }
+        
+        .whats-card-image{
+            padding: 0 5%;
+            grid-column: 1;
+        }
+        .whats-card-text{
+            grid-column: 2;
+        }
+        
+        @media (max-width:960px) {
+            .whats-card-image{
+                grid-row: 1;
+            }
+            .whats-card-text{
+                grid-row:2;
+                grid-column:1;
+            }
+        }
 .whats-in-the-box-wrapper{
     display: flex;
     flex-direction: column;
@@ -355,6 +397,14 @@ header{
 }
 
 .whats-in-the-box-card{
+    grid-row: 1;
+    grid-column: 1;
+    position:relative;
+    text-align: left;
+    inset: 0;
+    width: 100%;
+    opacity: 0;
+    transition: 400ms ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -380,6 +430,13 @@ header{
     .whats-card-text{
         max-width: 50%;
     }
+}
+
+.whats-card-number{
+    font-size: 65px;
+    letter-spacing: 3.25px;
+    -webkit-text-stroke-color: var(--color-black-primary);
+    -webkit-text-stroke-width: 1px;
 }
 
         /*Featured brands*/
@@ -751,7 +808,7 @@ button{
         text-align: center;
         font-weight: var(--fw-medium);
         font-size: 15px;
-        letter-spacing: 0.6px;
+        letter-spacing: 0.6;
         text-transform: uppercase;
         border-radius: 24px;
         height: 48px;
@@ -853,17 +910,57 @@ button{
           /*** GIFT BANNER ***/
 
 .banner-gift{
-    height: 530px;
+    height: 650px;
     background-image: url(assets/images/Gift-Box-mobilebanner@2x.png);
     background-repeat: no-repeat;
     background-position: bottom;
     background-size: contain;
+    background-color: var(--color-orange-500);
+    display: flex;
+    justify-content: center;
+    
 }
 .gift-wrapper{
+    grid-column: 2;
     display: flex;
+    max-width: 500px;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
+@media (min-width:900px) {
+    .banner-gift{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        height: 400px;
+        background-image: url(assets/images/Gift-Box-banner@2x.png);
+        background-position-x: center;
+        background-size: auto 100%;
+    }
+    .gift-wrapper{
+        justify-content: center;
+    }
+}
+.vip-wrapper{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.vip-slides{
+    display: flex;
+    column-gap: 1rem;
+    grid-column: 2;
+    position: relative;
+    top: 0;
+    left: 20%;
+}
+.vip-content{
+    grid-column: 1;
+}
+.vip-buttons-wrapper{
+    grid-column: 2;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
 
