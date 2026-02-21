@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none">
+  <!-- Cream Jar -->
+  <ellipse cx="300" cy="460" rx="100" ry="14" fill="#8b9e8b" opacity="0.12"/>
+  <ellipse cx="300" cy="380" rx="95" ry="80" fill="#c4d4c4" opacity="0.4"/>
+  <ellipse cx="300" cy="310" rx="95" ry="20" fill="#a8bfa8" opacity="0.35"/>
+  <rect x="215" y="280" width="170" height="30" rx="4" fill="#b8ccb8" opacity="0.4"/>
+  <ellipse cx="300" cy="280" rx="85" ry="18" fill="#d4e4d4" opacity="0.5"/>
+  <ellipse cx="300" cy="275" rx="60" ry="10" fill="#e8f0e8" opacity="0.4"/>
+  <text x="300" y="540" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#8b9e8b" letter-spacing="4" opacity="0.7">CREAM</text>
+</svg>

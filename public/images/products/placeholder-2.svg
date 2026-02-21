@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600" fill="none">
+  <!-- Serum Dropper Bottle -->
+  <ellipse cx="300" cy="485" rx="70" ry="10" fill="#b08888" opacity="0.15"/>
+  <rect x="260" y="230" width="80" height="240" rx="40" fill="#e0c4c4" opacity="0.5"/>
+  <rect x="275" y="245" width="50" height="210" rx="25" fill="#f0dede" opacity="0.4"/>
+  <rect x="285" y="190" width="30" height="50" rx="4" fill="#c9a3a3" opacity="0.5"/>
+  <circle cx="300" cy="185" r="14" fill="#b08888" opacity="0.4"/>
+  <line x1="300" y1="171" x2="300" y2="140" stroke="#c9a3a3" stroke-width="3" stroke-linecap="round" opacity="0.4"/>
+  <ellipse cx="300" cy="135" rx="8" ry="6" fill="#b08888" opacity="0.3"/>
+  <text x="300" y="540" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#b08888" letter-spacing="4" opacity="0.7">SERUM</text>
+</svg>
