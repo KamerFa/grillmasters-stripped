@@ -5,10 +5,10 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { ShoppingCart, Search, User, Menu, X, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { useCartStore } from "@/stores/cart.store";
 import { useLocale } from "next-intl";
+import { PredictiveSearch } from "./predictive-search";
 
 export function Header() {
   const t = useTranslations();
@@ -17,21 +17,11 @@ export function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
   const itemCount = useCartStore((s) => s.getItemCount());
 
   const switchLocale = () => {
     const nextLocale = locale === "bs" ? "en" : "bs";
     router.replace(pathname, { locale: nextLocale });
-  };
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchOpen(false);
-      setSearchQuery("");
-    }
   };
 
   return (
@@ -88,16 +78,12 @@ export function Header() {
         <div className="flex items-center space-x-2">
           {/* Search */}
           {searchOpen ? (
-            <form onSubmit={handleSearch} className="hidden md:flex">
-              <Input
-                type="search"
-                placeholder={t("common.searchPlaceholder")}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64"
-                autoFocus
+            <div className="hidden md:block">
+              <PredictiveSearch
+                className="w-72"
+                onClose={() => setSearchOpen(false)}
               />
-            </form>
+            </div>
           ) : (
             <Button
               variant="ghost"
@@ -138,14 +124,7 @@ export function Header() {
       {mobileMenuOpen && (
         <div className="md:hidden border-t">
           <div className="container py-4 space-y-3">
-            <form onSubmit={handleSearch}>
-              <Input
-                type="search"
-                placeholder={t("common.searchPlaceholder")}
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </form>
+            <PredictiveSearch onClose={() => setMobileMenuOpen(false)} />
             <nav className="flex flex-col space-y-2">
               <Link
                 href="/products"
