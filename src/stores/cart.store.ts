@@ -68,6 +68,7 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: "shop-ba-cart",
+      skipHydration: true,
     }
   )
 );
