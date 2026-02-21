@@ -92,6 +92,7 @@ export async function PATCH(
     if (data.dimensions !== undefined) updateData.dimensions = data.dimensions;
     if (data.metaTitle !== undefined) updateData.metaTitle = data.metaTitle;
     if (data.metaDescription !== undefined) updateData.metaDescription = data.metaDescription;
+    if (body.tags !== undefined) updateData.tags = body.tags;
 
     const product = await prisma.product.update({
       where: { id },

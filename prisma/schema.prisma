@@ -160,6 +160,7 @@ model Product {
   weight           Float?
   dimensions       Json?
   metaTitle        Json?
+  tags             Json?
   metaDescription  Json?
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt

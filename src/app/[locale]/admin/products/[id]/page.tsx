@@ -53,6 +53,7 @@ export default async function AdminProductEditPage({
         isActive: product.isActive,
         isFeatured: product.isFeatured,
         weight: product.weight ? Number(product.weight) : null,
+        tags: (product.tags as string[]) ?? [],
         variants: product.variants.map((v) => ({
           id: v.id,
           sku: v.sku,
@@ -61,6 +62,13 @@ export default async function AdminProductEditPage({
           reservedStock: v.reservedStock,
           attributes: v.attributes as Record<string, string> | null,
           isActive: v.isActive,
+        })),
+        images: product.images.map((img) => ({
+          id: img.id,
+          url: img.url,
+          altText: img.altText as { bs: string; en: string } | null,
+          sortOrder: img.sortOrder,
+          isPrimary: img.isPrimary,
         })),
       }}
       categories={categories}

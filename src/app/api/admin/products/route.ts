@@ -49,6 +49,7 @@ export async function POST(req: NextRequest) {
         isFeatured: data.isFeatured,
         weight: data.weight ?? null,
         dimensions: data.dimensions ?? undefined,
+        tags: body.tags ?? [],
         metaTitle: data.metaTitle ?? undefined,
         metaDescription: data.metaDescription ?? undefined,
         variants: {
