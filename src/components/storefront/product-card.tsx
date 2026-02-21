@@ -14,6 +14,23 @@ import { v4 as uuidv4 } from "uuid";
 
 const FALLBACK_IMAGE = "/images/products/placeholder-1.svg";
 
+const BACKDROP_COLORS = [
+  "bg-rose-100/60",
+  "bg-amber-100/60",
+  "bg-emerald-100/60",
+  "bg-sky-100/60",
+  "bg-violet-100/60",
+  "bg-orange-100/60",
+];
+
+function getBackdropColor(id: string) {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return BACKDROP_COLORS[Math.abs(hash) % BACKDROP_COLORS.length];
+}
+
 interface ProductCardProps {
   product: {
     id: string;
@@ -69,7 +86,7 @@ export function ProductCard({ product }: ProductCardProps) {
   return (
     <Link href={`/products/${product.slug}`}>
       <Card className="group overflow-hidden transition-all hover:shadow-lg">
-        <div className="relative aspect-square overflow-hidden bg-muted">
+        <div className={`relative aspect-square overflow-hidden ${getBackdropColor(product.id)}`}>
           <img
             src={imgError || !primaryImage ? FALLBACK_IMAGE : primaryImage.url}
             alt={
@@ -77,7 +94,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 ? getLocalizedField(primaryImage.altText, locale)
                 : name
             }
-            className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+            className="absolute inset-0 w-full h-full object-contain p-4 transition-transform group-hover:scale-105"
             onError={() => setImgError(true)}
           />
 

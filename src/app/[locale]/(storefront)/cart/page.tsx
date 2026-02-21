@@ -9,6 +9,25 @@ import { useCartStore } from "@/stores/cart.store";
 import { formatPrice } from "@/config/currency";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 
+const FALLBACK_IMAGE = "/images/products/placeholder-1.svg";
+
+const BACKDROP_COLORS = [
+  "bg-rose-100/60",
+  "bg-amber-100/60",
+  "bg-emerald-100/60",
+  "bg-sky-100/60",
+  "bg-violet-100/60",
+  "bg-orange-100/60",
+];
+
+function getBackdropColor(id: string) {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return BACKDROP_COLORS[Math.abs(hash) % BACKDROP_COLORS.length];
+}
+
 export default function CartPage() {
   const t = useTranslations();
   const { items, removeItem, updateQuantity, getSubtotal } = useCartStore();
@@ -39,14 +58,13 @@ export default function CartPage() {
               <CardContent className="p-4">
                 <div className="flex gap-4">
                   {/* Image */}
-                  <div className="w-20 h-20 bg-muted rounded-md overflow-hidden shrink-0">
-                    {item.image && (
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover"
-                      />
-                    )}
+                  <div className={`w-20 h-20 rounded-md overflow-hidden shrink-0 ${getBackdropColor(item.productId)}`}>
+                    <img
+                      src={item.image || FALLBACK_IMAGE}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK_IMAGE; }}
+                    />
                   </div>
 
                   {/* Details */}

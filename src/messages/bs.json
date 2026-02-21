@@ -1,6 +1,6 @@
 {
   "common": {
-    "shopName": "SHOP.BA",
+    "shopName": "HANA Beauty",
     "home": "Po\u010detna",
     "products": "Proizvodi",
     "categories": "Kategorije",
@@ -44,13 +44,22 @@
     "terms": "Uslovi kori\u0161tenja"
   },
   "home": {
-    "heroTitle": "Dobro\u0161li u SHOP.BA",
-    "heroSubtitle": "Kvalitetni proizvodi za vas",
-    "shopNow": "Kupujte sada",
-    "featuredProducts": "Istaknuti proizvodi",
+    "heroTitle": "Otkrijte Svoj Prirodni Sjaj",
+    "heroSubtitle": "Korejski rituali njege ko\u017ee za blistav i zdrav ten. Otkrijte formulacije napravljene od najfinijih prirodnih sastojaka.",
+    "shopNow": "Istra\u017eite kolekciju",
+    "featuredProducts": "Najprodavanije",
     "viewAll": "Pogledajte sve",
-    "categories": "Kategorije",
-    "newArrivals": "Nove kolekcije"
+    "categories": "Kupujte po ritualu",
+    "newArrivals": "Nove kolekcije",
+    "philosophyTitle": "HANA Filozofija",
+    "philosophyText": "Vjerujemo u snagu ne\u017ene, efikasne njege ko\u017ee utemeljene na korejskoj beauty tradiciji. Svaki proizvod je pa\u017eljivo odabran za \u010disto\u0107u, efikasnost i transformativno iskustvo.",
+    "promiseTitle": "Na\u0161e obe\u0107anje",
+    "promise1Title": "\u010cisti sastojci",
+    "promise1Text": "Bez parabena, sulfata ili umjetnih mirisa. Samo ono \u0161to va\u0161a ko\u017ea zaista treba.",
+    "promise2Title": "K-Beauty stru\u010dnost",
+    "promise2Text": "Direktno iz najpouzdanijih korejskih laboratorija i botani\u010dkih vrtova.",
+    "promise3Title": "Vidljivi rezultati",
+    "promise3Text": "Klini\u010dki inspirirane formule dizajnirane za pravu, trajnu transformaciju."
   },
   "product": {
     "addToCart": "Dodaj u korpu",

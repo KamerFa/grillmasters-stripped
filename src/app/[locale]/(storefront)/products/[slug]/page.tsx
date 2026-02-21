@@ -9,6 +9,23 @@ import { ProductActions } from "@/components/storefront/product-actions";
 import { Badge } from "@/components/ui/badge";
 import type { Metadata } from "next";
 
+const BACKDROP_COLORS = [
+  "bg-rose-100/60",
+  "bg-amber-100/60",
+  "bg-emerald-100/60",
+  "bg-sky-100/60",
+  "bg-violet-100/60",
+  "bg-orange-100/60",
+];
+
+function getBackdropColor(id: string) {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return BACKDROP_COLORS[Math.abs(hash) % BACKDROP_COLORS.length];
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -21,7 +38,7 @@ export async function generateMetadata({
     const name = getLocalizedField(product.name, locale);
     const description = getLocalizedField(product.description, locale);
     return {
-      title: `${name} | SHOP.BA`,
+      title: `${name} | HANA Beauty`,
       description: description || name,
     };
   } catch {
@@ -108,24 +125,26 @@ export default async function ProductDetailPage({
       <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
         {/* Image Gallery */}
         <div className="space-y-4">
-          <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
+          <div className={`relative aspect-square overflow-hidden rounded-lg ${getBackdropColor(product.id)}`}>
             <img
               src={product.images[0]?.url || "/images/products/placeholder-1.svg"}
               alt={name}
-              className="object-cover w-full h-full"
+              className="object-contain w-full h-full p-4"
+              onError={(e) => { (e.target as HTMLImageElement).src = "/images/products/placeholder-1.svg"; }}
             />
           </div>
           {product.images.length > 1 && (
             <div className="grid grid-cols-4 gap-2">
-              {product.images.slice(0, 4).map((img) => (
+              {product.images.slice(0, 4).map((img, idx) => (
                 <div
                   key={img.id}
-                  className="relative aspect-square overflow-hidden rounded-md bg-muted"
+                  className={`relative aspect-square overflow-hidden rounded-md ${BACKDROP_COLORS[(Math.abs(idx) + 1) % BACKDROP_COLORS.length]}`}
                 >
                   <img
                     src={img.url}
                     alt={name}
-                    className="object-cover w-full h-full"
+                    className="object-contain w-full h-full p-2"
+                    onError={(e) => { (e.target as HTMLImageElement).src = "/images/products/placeholder-1.svg"; }}
                   />
                 </div>
               ))}

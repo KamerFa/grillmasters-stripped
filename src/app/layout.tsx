@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "SHOP.BA",
-  description: "Your online store in Bosnia and Herzegovina",
+  title: "HANA Beauty | Premium Korean Skincare",
+  description: "Premium Korean skincare & beauty. Curated K-beauty essentials for radiant, healthy skin.",
 };
 
 export default function RootLayout({

@@ -7,6 +7,25 @@ import { Input } from "@/components/ui/input";
 import { formatPrice } from "@/config/currency";
 import { Search, X, Loader2 } from "lucide-react";
 
+const FALLBACK_IMAGE = "/images/products/placeholder-1.svg";
+
+const BACKDROP_COLORS = [
+  "bg-rose-100/60",
+  "bg-amber-100/60",
+  "bg-emerald-100/60",
+  "bg-sky-100/60",
+  "bg-violet-100/60",
+  "bg-orange-100/60",
+];
+
+function getBackdropColor(id: string) {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = id.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return BACKDROP_COLORS[Math.abs(hash) % BACKDROP_COLORS.length];
+}
+
 interface SearchProduct {
   id: string;
   name: { bs: string; en: string };
@@ -190,14 +209,13 @@ export function PredictiveSearch({
                         navigateTo(`/products/${product.slug}`)
                       }
                     >
-                      <div className="w-10 h-10 bg-muted rounded overflow-hidden flex-shrink-0">
-                        {product.images[0] && (
-                          <img
-                            src={product.images[0].url}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
-                        )}
+                      <div className={`w-10 h-10 rounded overflow-hidden flex-shrink-0 ${getBackdropColor(product.id)}`}>
+                        <img
+                          src={product.images[0]?.url || FALLBACK_IMAGE}
+                          alt=""
+                          className="w-full h-full object-cover"
+                          onError={(e) => { (e.target as HTMLImageElement).src = FALLBACK_IMAGE; }}
+                        />
                       </div>
                       <div className="min-w-0 flex-1">
                         <p className="text-sm font-medium truncate">

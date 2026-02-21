@@ -48,32 +48,32 @@ export function Header() {
 
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <span className="text-xl font-bold">{t("common.shopName")}</span>
+          <span className="text-xl font-display font-semibold tracking-wide">{t("common.shopName")}</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <Link
             href="/products"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-xs font-medium transition-colors hover:text-primary tracking-widest uppercase"
           >
             {t("common.products")}
           </Link>
           <Link
-            href="/categories/odjeca"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            href="/products"
+            className="text-xs font-medium transition-colors hover:text-primary tracking-widest uppercase"
           >
             {t("nav.newArrivals")}
           </Link>
           <Link
             href="/pages/about"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-xs font-medium transition-colors hover:text-primary tracking-widest uppercase"
           >
             {t("nav.about")}
           </Link>
           <Link
             href="/pages/contact"
-            className="text-sm font-medium transition-colors hover:text-primary"
+            className="text-xs font-medium transition-colors hover:text-primary tracking-widest uppercase"
           >
             {t("nav.contact")}
           </Link>
@@ -139,7 +139,7 @@ export function Header() {
                 {t("common.products")}
               </Link>
               <Link
-                href="/categories/odjeca"
+                href="/products"
                 className="text-sm font-medium py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >

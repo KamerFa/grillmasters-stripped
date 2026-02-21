@@ -1,8 +1,8 @@
 export const siteConfig = {
-  name: "SHOP.BA",
+  name: "HANA Beauty",
   description: {
-    bs: "Va\u0161a online prodavnica u Bosni i Hercegovini",
-    en: "Your online store in Bosnia and Herzegovina",
+    bs: "Premium korejska kozmetika i njega ko\u017ee",
+    en: "Premium Korean skincare & beauty",
   },
   url: process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000",
   defaultLocale: "bs" as const,

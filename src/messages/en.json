@@ -1,6 +1,6 @@
 {
   "common": {
-    "shopName": "SHOP.BA",
+    "shopName": "HANA Beauty",
     "home": "Home",
     "products": "Products",
     "categories": "Categories",
@@ -35,22 +35,31 @@
     "switchLanguage": "Bosanski"
   },
   "nav": {
-    "newArrivals": "New Arrivals",
+    "newArrivals": "New In",
     "sale": "Sale",
-    "about": "About",
+    "about": "Our Story",
     "contact": "Contact",
     "shippingPolicy": "Shipping",
     "privacyPolicy": "Privacy",
     "terms": "Terms of Service"
   },
   "home": {
-    "heroTitle": "Welcome to SHOP.BA",
-    "heroSubtitle": "Quality products for you",
-    "shopNow": "Shop Now",
-    "featuredProducts": "Featured Products",
+    "heroTitle": "Reveal Your Natural Glow",
+    "heroSubtitle": "Curated Korean skincare rituals for radiant, healthy skin. Discover time-tested formulas crafted with nature's finest ingredients.",
+    "shopNow": "Explore Collection",
+    "featuredProducts": "Bestsellers",
     "viewAll": "View All",
-    "categories": "Categories",
-    "newArrivals": "New Arrivals"
+    "categories": "Shop by Ritual",
+    "newArrivals": "New Arrivals",
+    "philosophyTitle": "The HANA Philosophy",
+    "philosophyText": "We believe in the power of gentle, effective skincare rooted in Korean beauty traditions. Every product is hand-selected for purity, efficacy, and the transformative experience it brings to your daily ritual.",
+    "promiseTitle": "Our Promise",
+    "promise1Title": "Clean Ingredients",
+    "promise1Text": "No parabens, sulfates, or artificial fragrances. Only what your skin truly needs.",
+    "promise2Title": "K-Beauty Expertise",
+    "promise2Text": "Sourced directly from Korea's most trusted laboratories and botanical gardens.",
+    "promise3Title": "Visible Results",
+    "promise3Text": "Clinically inspired formulas designed for real, lasting transformation."
   },
   "product": {
     "addToCart": "Add to Cart",
