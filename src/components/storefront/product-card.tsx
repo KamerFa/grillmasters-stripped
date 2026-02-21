@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link } from "@/i18n/routing";
 import { Card, CardContent } from "@/components/ui/card";
@@ -11,6 +11,8 @@ import { getLocalizedField } from "@/lib/utils";
 import { formatPrice } from "@/config/currency";
 import { useCartStore } from "@/stores/cart.store";
 import { v4 as uuidv4 } from "uuid";
+
+const FALLBACK_IMAGE = "/images/products/placeholder-1.svg";
 
 interface ProductCardProps {
   product: {
@@ -29,6 +31,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const t = useTranslations("product");
   const locale = useLocale();
   const addItem = useCartStore((s) => s.addItem);
+  const [imgError, setImgError] = useState(false);
 
   const name = getLocalizedField(product.name, locale);
   const primaryImage = product.images.find((i) => i.isPrimary) ?? product.images[0];
@@ -67,23 +70,16 @@ export function ProductCard({ product }: ProductCardProps) {
     <Link href={`/products/${product.slug}`}>
       <Card className="group overflow-hidden transition-all hover:shadow-lg">
         <div className="relative aspect-square overflow-hidden bg-muted">
-          {primaryImage ? (
-            <Image
-              src={primaryImage.url}
-              alt={
-                primaryImage.altText
-                  ? getLocalizedField(primaryImage.altText, locale)
-                  : name
-              }
-              fill
-              className="object-cover transition-transform group-hover:scale-105"
-              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center text-muted-foreground">
-              No image
-            </div>
-          )}
+          <img
+            src={imgError || !primaryImage ? FALLBACK_IMAGE : primaryImage.url}
+            alt={
+              primaryImage?.altText
+                ? getLocalizedField(primaryImage.altText, locale)
+                : name
+            }
+            className="absolute inset-0 w-full h-full object-cover transition-transform group-hover:scale-105"
+            onError={() => setImgError(true)}
+          />
 
           {/* Badges */}
           <div className="absolute top-2 left-2 flex flex-col gap-1">

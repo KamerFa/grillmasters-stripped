@@ -109,17 +109,11 @@ export default async function ProductDetailPage({
         {/* Image Gallery */}
         <div className="space-y-4">
           <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
-            {product.images[0] ? (
-              <img
-                src={product.images[0].url}
-                alt={name}
-                className="object-cover w-full h-full"
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center text-muted-foreground">
-                No image
-              </div>
-            )}
+            <img
+              src={product.images[0]?.url || "/images/products/placeholder-1.svg"}
+              alt={name}
+              className="object-cover w-full h-full"
+            />
           </div>
           {product.images.length > 1 && (
             <div className="grid grid-cols-4 gap-2">

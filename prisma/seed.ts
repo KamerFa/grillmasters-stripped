@@ -116,6 +116,15 @@ async function main() {
 
   console.log(`${categories.length} categories created`);
 
+  // Placeholder images
+  const placeholderImages = [
+    "/images/products/placeholder-1.svg",
+    "/images/products/placeholder-2.svg",
+    "/images/products/placeholder-3.svg",
+    "/images/products/placeholder-4.svg",
+    "/images/products/placeholder-5.svg",
+  ];
+
   // Create products
   const products = [
     {
@@ -363,7 +372,7 @@ async function main() {
         images: {
           create: [
             {
-              url: `/images/products/${p.slug}.jpg`,
+              url: placeholderImages[Math.floor(Math.random() * placeholderImages.length)],
               altText: p.name,
               sortOrder: 0,
               isPrimary: true,
