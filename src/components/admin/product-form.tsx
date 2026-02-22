@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -19,6 +19,7 @@ import {
   Star,
   Edit2,
   Check,
+  Undo2,
 } from "lucide-react";
 
 interface ImageData {
@@ -63,16 +64,8 @@ interface ProductFormProps {
   locale: string;
 }
 
-export function ProductForm({ product, categories, locale }: ProductFormProps) {
-  const router = useRouter();
-  const isEdit = !!product?.id;
-
-  const [saving, setSaving] = useState(false);
-  const [deleting, setDeleting] = useState(false);
-  const [error, setError] = useState("");
-  const [success, setSuccess] = useState("");
-
-  const [form, setForm] = useState({
+function buildInitialForm(product?: ProductData) {
+  return {
     sku: product?.sku ?? "",
     nameBs: product?.name?.bs ?? "",
     nameEn: product?.name?.en ?? "",
@@ -90,10 +83,26 @@ export function ProductForm({ product, categories, locale }: ProductFormProps) {
     isActive: product?.isActive ?? true,
     isFeatured: product?.isFeatured ?? false,
     weight: product?.weight?.toString() ?? "",
-  });
+  };
+}
 
-  // Tags
-  const [tags, setTags] = useState<string[]>(product?.tags ?? []);
+export function ProductForm({ product, categories, locale }: ProductFormProps) {
+  const router = useRouter();
+  const isEdit = !!product?.id;
+
+  const [saving, setSaving] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  // ─── Form state with dirty tracking ───
+  const initialForm = buildInitialForm(product);
+  const initialTags = product?.tags ?? [];
+  const initialFormRef = useRef(initialForm);
+  const initialTagsRef = useRef(initialTags);
+
+  const [form, setForm] = useState(initialForm);
+  const [tags, setTags] = useState<string[]>([...initialTags]);
   const [newTag, setNewTag] = useState("");
 
   // Images
@@ -120,6 +129,24 @@ export function ProductForm({ product, categories, locale }: ProductFormProps) {
     attrKey: "",
     attrValue: "",
   });
+
+  // ─── Dirty tracking ───
+  const isDirty = useMemo(() => {
+    const init = initialFormRef.current;
+    const formChanged = (Object.keys(init) as (keyof typeof init)[]).some(
+      (key) => form[key] !== init[key]
+    );
+    const tagsChanged =
+      JSON.stringify(tags) !== JSON.stringify(initialTagsRef.current);
+    return formChanged || tagsChanged;
+  }, [form, tags]);
+
+  const resetForm = useCallback(() => {
+    setForm({ ...initialFormRef.current });
+    setTags([...initialTagsRef.current]);
+    setError("");
+    setSuccess("");
+  }, []);
 
   const updateField = (field: string, value: string | boolean) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -377,10 +404,7 @@ export function ProductForm({ product, categories, locale }: ProductFormProps) {
       sku: form.sku,
       name: { bs: form.nameBs, en: form.nameEn },
       slug: form.slug,
-      description:
-        form.descBs || form.descEn
-          ? { bs: form.descBs, en: form.descEn }
-          : undefined,
+      description: { bs: form.descBs, en: form.descEn },
       price: priceInFeninga,
       compareAtPrice: compareAtPriceInFeninga,
       costPrice: costPriceInFeninga,
@@ -411,6 +435,11 @@ export function ProductForm({ product, categories, locale }: ProductFormProps) {
       }
 
       const saved = await res.json();
+
+      // Update initial refs so isDirty resets
+      initialFormRef.current = { ...form };
+      initialTagsRef.current = [...tags];
+
       setSuccess(isEdit ? "Product updated!" : "Product created!");
 
       if (!isEdit) {
@@ -485,7 +514,7 @@ export function ProductForm({ product, categories, locale }: ProductFormProps) {
       )}
 
       <form onSubmit={handleSave}>
-        <div className="grid lg:grid-cols-3 gap-6">
+        <div className={`grid lg:grid-cols-3 gap-6 ${isDirty ? "pb-20" : ""}`}>
           {/* Main content */}
           <div className="lg:col-span-2 space-y-6">
             {/* Basic Info */}
@@ -1086,18 +1115,36 @@ export function ProductForm({ product, categories, locale }: ProductFormProps) {
                 </div>
               </CardContent>
             </Card>
-
-            {/* Save button */}
-            <Button type="submit" className="w-full gap-2" disabled={saving}>
-              <Save className="h-4 w-4" />
-              {saving
-                ? "Saving..."
-                : isEdit
-                  ? "Update Product"
-                  : "Create Product"}
-            </Button>
           </div>
         </div>
+
+        {/* ─── Global sticky save bar ─── */}
+        {isDirty && (
+          <div className="sticky bottom-0 z-30 -mx-8 mt-6 border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 px-8 py-3 shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <div className="h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
+                Unsaved changes
+              </div>
+              <div className="flex items-center gap-3">
+                <Button
+                  variant="ghost"
+                  type="button"
+                  size="sm"
+                  onClick={resetForm}
+                  className="gap-2"
+                >
+                  <Undo2 className="h-4 w-4" />
+                  Discard
+                </Button>
+                <Button type="submit" size="sm" disabled={saving} className="gap-2">
+                  <Save className="h-4 w-4" />
+                  {saving ? "Saving..." : "Save changes"}
+                </Button>
+              </div>
+            </div>
+          </div>
+        )}
       </form>
     </div>
   );

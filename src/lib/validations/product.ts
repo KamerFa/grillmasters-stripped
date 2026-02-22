@@ -5,11 +5,16 @@ const localizedString = z.object({
   en: z.string().min(1),
 });
 
+const localizedStringLoose = z.object({
+  bs: z.string(),
+  en: z.string(),
+});
+
 export const productSchema = z.object({
   sku: z.string().min(1, "SKU is required"),
   name: localizedString,
   slug: z.string().min(1, "Slug is required"),
-  description: localizedString.optional(),
+  description: localizedStringLoose.optional(),
   price: z.number().int().positive("Price must be positive"),
   compareAtPrice: z.number().int().positive().optional().nullable(),
   costPrice: z.number().int().positive().optional().nullable(),
@@ -25,8 +30,8 @@ export const productSchema = z.object({
     })
     .optional()
     .nullable(),
-  metaTitle: localizedString.optional().nullable(),
-  metaDescription: localizedString.optional().nullable(),
+  metaTitle: localizedStringLoose.optional().nullable(),
+  metaDescription: localizedStringLoose.optional().nullable(),
 });
 
 export const productVariantSchema = z.object({
